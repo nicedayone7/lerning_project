@@ -1,0 +1,51 @@
+python manage.py runserver
+python manage.py runserver 4000 // start on port 4000
+python manage.py runserver 1.2.3.4:4000// on ip 1.2.3.4 port 4000
+
+python manage.py startapp appname
+
+python manage.py shell
+from path_to_models import class_model
+News.objects.all()
+news = _
+news.objects.filter()
+
+//save
+from blog.models import Blog
+>>> b = Blog(name='Beatles Blog', tagline='All the latest Beatles news.')
+>>> b.save()
+
+// change object
+>>> b5.name = 'New name'
+>>> b5.save()
+
+// takes all objects
+
+>>> all_entries = Entry.objects.all()
+
+// filter objects
+
+Entry.objects.filter(pub_date__year=2006)
+Entry.objects.all().filter(pub_date__year=2006)
+
+// filter chance
+
+>>> Entry.objects.filter(
+...     headline__startswith='What'
+... ).exclude(
+...     pub_date__gte=datetime.date.today()
+... ).filter(
+...     pub_date__gte=datetime.date(2005, 1, 30)
+... )
+
+// take one object
+
+>>> one_entry = Entry.objects.get(pk=1)
+Entry.objects.order_by('headline')[0]
+
+// LIMIT and OFFSET SQL
+
+>>> Entry.objects.all()[:5]
+>>> Entry.objects.all()[5:10]
+
+
